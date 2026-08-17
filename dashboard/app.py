@@ -435,24 +435,47 @@ else:
         default_hba1c, default_hgb, default_k, default_bmi, default_age = 8.6, 10.8, 4.9, 31.2, 63
         default_dm, default_cvd = 1, 1
         default_acei, default_sglt2i, default_diur = 0, 0, 1
-        pt_badge = "🔴 Rapid Progressor"
+        badge_bg = "rgba(239, 68, 68, 0.1)"
+        badge_border = "rgba(239, 68, 68, 0.35)"
+        badge_dot = "#EF4444"
+        badge_title = "Rapid Progressor"
+        badge_color = "#FCA5A5"
+        badge_sub = "Diabetic Nephropathy · Rapid Decline (-5.8 mL/min/yr)"
     elif "2085" in preset:
         default_egfr, default_creat, default_uacr = 48.0, 1.6, 220.0
         default_sbp, default_dbp = 142.0, 88.0
         default_hba1c, default_hgb, default_k, default_bmi, default_age = 7.1, 12.1, 4.4, 27.5, 59
         default_dm, default_cvd = 0, 1
         default_acei, default_sglt2i, default_diur = 1, 0, 0
-        pt_badge = "🟡 Moderate Decline"
+        badge_bg = "rgba(245, 158, 11, 0.1)"
+        badge_border = "rgba(245, 158, 11, 0.35)"
+        badge_dot = "#F59E0B"
+        badge_title = "Moderate Decline"
+        badge_color = "#FDE68A"
+        badge_sub = "Hypertensive CKD · Expected Slope (-3.2 mL/min/yr)"
     else:
         default_egfr, default_creat, default_uacr = 56.0, 1.2, 85.0
         default_sbp, default_dbp = 126.0, 78.0
         default_hba1c, default_hgb, default_k, default_bmi, default_age = 6.4, 13.5, 4.2, 24.8, 52
         default_dm, default_cvd = 0, 0
         default_acei, default_sglt2i, default_diur = 1, 1, 0
-        pt_badge = "🟢 Stable Trajectory"
+        badge_bg = "rgba(16, 185, 129, 0.1)"
+        badge_border = "rgba(16, 185, 129, 0.35)"
+        badge_dot = "#10B981"
+        badge_title = "Stable Trajectory"
+        badge_color = "#A7F3D0"
+        badge_sub = "Stage 3a Controlled · Slow Slope (-0.8 mL/min/yr)"
     
-    st.sidebar.markdown(f"**Cohort Phenotype:** `{pt_badge}`")
-    st.sidebar.markdown("---")
+    st.sidebar.markdown(f"""
+    <div style='background: {badge_bg}; border: 1px solid {badge_border}; border-radius: 8px; padding: 9px 12px; margin: 10px 0 16px 0;'>
+        <div style='font-size: 0.68rem; color: #94A3B8; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;'>Clinical Phenotype</div>
+        <div style='display: flex; align-items: center; gap: 7px; margin-top: 3px;'>
+            <span style='display: inline-block; width: 7px; height: 7px; border-radius: 50%; background-color: {badge_dot}; box-shadow: 0 0 8px {badge_dot};'></span>
+            <span style='font-size: 0.85rem; font-weight: 700; color: {badge_color};'>{badge_title}</span>
+        </div>
+        <div style='font-size: 0.72rem; color: #94A3B8; margin-top: 2px; line-height: 1.3;'>{badge_sub}</div>
+    </div>
+    """, unsafe_allow_html=True)
     
     st.sidebar.markdown("#### 🧪 Laboratory Measurements")
     col_s1, col_s2 = st.sidebar.columns(2)
