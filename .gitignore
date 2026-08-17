@@ -41,8 +41,8 @@ Thumbs.db
 *.log
 .streamlit/
 
-# Local presentation documents (Never push to git)
-presentation_ready_docs.docx
-presentation_ready_docs.doc
-presentation_ready_docs.pdf
+# Word temporary lock files & presentation docs (Never push to git)
+~$*
+presentation_ready_docs*
+
 
