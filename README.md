@@ -21,17 +21,13 @@ $$\frac{dz}{dt} = \mathcal{A}z + \mathcal{B}u \implies z(t + \Delta t) = \exp(\m
 
 ---
 
-## 🏛️ System Architecture
+## 🖥️ NephroKoopman AI Clinical Platform & Hospital Report
 
-![System Architecture](architecture_diagram.png)
+### 1. Clinician Decision Support Portal
+![NephroKoopman AI Landing Portal](docs/assets/landing_page_preview.png)
 
-```
-[Clinical EHR Lab Panel] ---> [Non-linear Encoder psi_enc] ---> [Latent State z(t) in R^32]
-                                                                      |
-                                              [Matrix Exponential exp(A * dt) + B * u]
-                                                                      |
-[Reconstructed Future Trajectory] <-- [Non-linear Decoder psi_dec] <-- [Latent State z(t + dt)]
-```
+### 2. Hospital-Grade Consultation & Trajectory PDF Report
+![Hospital Consultation Report](docs/assets/hospital_consult_pdf_preview.png)
 
 ---
 
@@ -80,6 +76,7 @@ Open **`http://localhost:8501`** in your browser.
 ├── src/
 │   ├── data_preprocessing.py                     # Feature scaling, masking & Δt batching
 │   ├── explainability.py                         # Spectral modes, What-If engine & conformal bands
+│   ├── pdf_generator.py                          # Hospital-grade consultation PDF generator
 │   ├── train.py                                  # Training loop & multi-horizon evaluation
 │   └── models/
 │       ├── deep_dmdc.py                          # Deep Continuous Koopman network
@@ -90,7 +87,8 @@ Open **`http://localhost:8501`** in your browser.
 │   └── benchmark_results.csv                     # Test metrics
 ├── dashboard/
 │   └── app.py                                    # Streamlit + Plotly decision dashboard
-├── architecture_diagram.png                      # High-res system architecture
+├── docs/
+│   └── assets/                                   # Portal & report preview screenshots
 ├── AI_CKD_Progression_Master_Report.docx         # Complete academic report
 └── run_dashboard.bat                             # One-click Windows runner
 ```
