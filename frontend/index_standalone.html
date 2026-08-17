@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NephroKoopman AI | Continuous CKD Progression & What-If Platform</title>
+  
+  <!-- Tailwind CSS & Plus Jakarta Sans Font -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            background: "#070A11",
+            surface: "#0B111A",
+            surfaceHover: "#0E1622",
+            cardBorder: "rgba(255, 255, 255, 0.08)",
+            primaryTeal: "#06B6D4",
+            primaryTealHover: "#22D3EE",
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #070A11;
+      color: #F8FAFC;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+    }
+  </style>
+</head>
+<body class="bg-[#070A11] text-[#F8FAFC] min-h-screen selection:bg-cyan-500/30 selection:text-cyan-300">
+
+  <!-- ===================================================================== -->
+  <!-- VIEW 1: EXACT 1-TO-1 LOVABLE LANDING PAGE -->
+  <!-- ===================================================================== -->
+  <div id="landing-view" class="min-h-screen px-6 lg:px-16 py-8 flex flex-col justify-between">
+    
+    <!-- Top Bar -->
+    <header class="flex justify-between items-center pb-6 border-b border-white/5">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-bold text-lg">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <div>
+          <h1 class="text-base font-bold text-white leading-none">NephroKoopman AI</h1>
+          <p class="text-xs text-slate-400 mt-1">Continuous CKD progression & what-if decision platform</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.08] text-xs text-slate-400 font-medium">
+        <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+        <span>Restricted clinical preview</span>
+      </div>
+    </header>
+
+    <!-- Main Hero Body -->
+    <main class="grid grid-cols-1 lg:grid-cols-12 gap-12 my-auto py-8 items-start">
+      
+      <!-- Left Column: Hero & 4 Cards & Stats -->
+      <div class="lg:col-span-7 flex flex-col justify-center">
+        
+        <!-- Pill Tag -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold uppercase tracking-wider w-max mb-6">
+          <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+          <span>NEPHROLOGY DECISION SUPPORT</span>
+        </div>
+
+        <!-- Title -->
+        <h2 class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight leading-[1.15] mb-5">
+          See kidney decline before it happens — and test the therapy that changes it.
+        </h2>
+
+        <!-- Subtitle -->
+        <p class="text-base sm:text-lg text-slate-400 leading-relaxed max-w-2xl mb-8">
+          NephroKoopman AI fuses Koopman/DMDc dynamical modelling with conformal prediction to turn routine labs into a continuous, uncertainty-aware CKD trajectory — plus a counterfactual simulator for every major renoprotective lever.
+        </p>
+
+        <!-- 4 Cards Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          
+          <!-- Card 1 -->
+          <div class="bg-[#0B111A] border border-white/[0.08] rounded-xl p-5 hover:border-cyan-500/40 hover:bg-[#0E1622] transition-all duration-200">
+            <div class="text-cyan-400 mb-2.5">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"/></svg>
+            </div>
+            <h3 class="text-sm font-bold text-white mb-1.5">Continuous trajectory</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              24-month eGFR forecasts with 95% conformal uncertainty envelopes and dialysis countdown.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="bg-[#0B111A] border border-white/[0.08] rounded-xl p-5 hover:border-cyan-500/40 hover:bg-[#0E1622] transition-all duration-200">
+            <div class="text-cyan-400 mb-2.5">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+            </div>
+            <h3 class="text-sm font-bold text-white mb-1.5">Counterfactual therapy</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Simulate SGLT2i, ACEi maximisation, finerenone and BP targets — see nephron-years preserved.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="bg-[#0B111A] border border-white/[0.08] rounded-xl p-5 hover:border-cyan-500/40 hover:bg-[#0E1622] transition-all duration-200">
+            <div class="text-cyan-400 mb-2.5">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <h3 class="text-sm font-bold text-white mb-1.5">Koopman explainability</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Spectral modes and SHAP attributions expose exactly why the model expects decline.
+            </p>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="bg-[#0B111A] border border-white/[0.08] rounded-xl p-5 hover:border-cyan-500/40 hover:bg-[#0E1622] transition-all duration-200">
+            <div class="text-cyan-400 mb-2.5">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            </div>
+            <h3 class="text-sm font-bold text-white mb-1.5">Audit-ready notes</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              One-click consult summaries formatted for the chart, with model version and assumptions.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Bottom Stats -->
+        <div class="flex items-center gap-10 mt-8 pt-6 border-t border-white/5">
+          <div>
+            <div class="text-2xl font-extrabold text-white">95%</div>
+            <div class="text-xs text-slate-400 mt-0.5">Conformal coverage target</div>
+          </div>
+          <div>
+            <div class="text-2xl font-extrabold text-white">24 mo</div>
+            <div class="text-xs text-slate-400 mt-0.5">Forecast horizon</div>
+          </div>
+          <div>
+            <div class="text-2xl font-extrabold text-white">6</div>
+            <div class="text-xs text-slate-400 mt-0.5">Modifiable therapy levers</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Sign-in Box -->
+      <div class="lg:col-span-5 flex justify-center">
+        <div class="w-full max-w-md bg-[#0B111A] border border-white/[0.08] rounded-2xl p-7 sm:p-8 shadow-2xl">
+          
+          <h3 class="text-xl font-bold text-white mb-1.5">Clinician sign-in</h3>
+          <p className="text-xs text-slate-400 leading-relaxed mb-6">
+            Demonstration workspace with synthetic patients — no protected health information is stored.
+          </p>
+
+          <form onsubmit="enterPlatform(event)" class="space-y-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1.5">Clinician name or NPI</label>
+              <input type="text" id="clinician-input" value="Dr. A. Koopman" class="w-full bg-[#070A11] border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-cyan-500 transition-colors">
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1.5">Access code</label>
+              <input type="password" value="••••••" class="w-full bg-[#070A11] border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-cyan-500 transition-colors">
+            </div>
+
+            <button type="submit" class="w-full mt-2 bg-cyan-500 hover:bg-cyan-400 text-[#070A11] font-bold py-3 px-4 rounded-lg text-sm transition-all duration-200 flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20">
+              <span>Enter platform</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </button>
+          </form>
+
+          <div class="mt-6 pt-4 border-t border-white/5 text-[11px] text-slate-400 leading-relaxed">
+            Research prototype. Outputs are not regulatory-approved diagnostics and must not replace clinical judgement.
+          </div>
+
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="flex justify-between items-center text-xs text-slate-400 pt-6 border-t border-white/5">
+      <span>NephroKoopman AI © 2026</span>
+      <span>Validated on CRIC & UCI Clinical Cohorts</span>
+    </footer>
+
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- VIEW 2: GATED CLINICIAN DECISION DASHBOARD -->
+  <!-- ===================================================================== -->
+  <div id="dashboard-view" class="hidden min-h-screen flex-col">
+    
+    <!-- Top Header Bar -->
+    <header class="h-16 border-b border-white/[0.08] bg-[#0B111A]/80 backdrop-blur px-6 flex items-center justify-between sticky top-0 z-30">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-sm font-bold text-white">NephroKoopman AI</span>
+            <span class="text-[10px] font-semibold text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded-full border border-cyan-500/20">LIVE PLATFORM</span>
+          </div>
+          <span id="clinician-display" class="text-[11px] text-slate-400">Signed in as: Dr. A. Koopman</span>
+        </div>
+      </div>
+
+      <button onclick="exitPlatform()" class="flex items-center gap-1.5 text-xs text-slate-400 hover:text-white px-3 py-1.5 rounded-lg bg-white/[0.03] border border-white/[0.08] hover:bg-white/[0.06] transition-all">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+        <span>Sign Out</span>
+      </button>
+    </header>
+
+    <!-- Main Workspace Layout -->
+    <div class="flex-1 grid grid-cols-1 lg:grid-cols-12 overflow-hidden">
+      
+      <!-- Left Sidebar Lab Panel -->
+      <aside class="lg:col-span-3 border-r border-white/[0.08] bg-[#080D15] p-5 space-y-6 overflow-y-auto">
+        <div>
+          <label class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2">Select Clinical Case</label>
+          <div class="grid grid-cols-3 gap-1.5 bg-[#0B111A] p-1 rounded-lg border border-white/5">
+            <button onclick="selectCase('1042')" id="btn-1042" class="py-1.5 text-xs font-semibold rounded-md bg-cyan-500 text-[#070A11]">#1042</button>
+            <button onclick="selectCase('2085')" id="btn-2085" class="py-1.5 text-xs font-semibold rounded-md text-slate-400 hover:text-white">#2085</button>
+            <button onclick="selectCase('3019')" id="btn-3019" class="py-1.5 text-xs font-semibold rounded-md text-slate-400 hover:text-white">#3019</button>
+          </div>
+          <div id="case-desc" class="mt-2 text-[11px] text-red-400 font-semibold">🔴 Rapid Diabetic Nephropathy Progressor</div>
+        </div>
+
+        <div class="space-y-4 pt-3 border-t border-white/5">
+          <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider">Patient Lab Biomarkers</h4>
+
+          <div>
+            <div class="flex justify-between text-xs mb-1">
+              <span class="text-slate-300">eGFR (mL/min/1.73m²)</span>
+              <span id="val-egfr" class="font-bold text-cyan-400">36.5</span>
+            </div>
+            <input type="range" id="input-egfr" min="5" max="120" step="0.5" value="36.5" oninput="updateLabs()" class="w-full accent-cyan-400">
+          </div>
+
+          <div>
+            <div class="flex justify-between text-xs mb-1">
+              <span class="text-slate-300">Serum Creatinine (mg/dL)</span>
+              <span id="val-creat" class="font-bold text-white">2.3</span>
+            </div>
+            <input type="range" id="input-creat" min="0.5" max="10" step="0.1" value="2.3" oninput="updateLabs()" class="w-full accent-cyan-400">
+          </div>
+
+          <div>
+            <div class="flex justify-between text-xs mb-1">
+              <span class="text-slate-300">UACR (mg/g)</span>
+              <span id="val-uacr" class="font-bold text-amber-400">580</span>
+            </div>
+            <input type="range" id="input-uacr" min="10" max="3000" step="10" value="580" oninput="updateLabs()" class="w-full accent-cyan-400">
+          </div>
+
+          <div>
+            <div class="flex justify-between text-xs mb-1">
+              <span class="text-slate-300">Systolic BP (mmHg)</span>
+              <span id="val-sbp" class="font-bold text-white">152</span>
+            </div>
+            <input type="range" id="input-sbp" min="80" max="220" step="1" value="152" oninput="updateLabs()" class="w-full accent-cyan-400">
+          </div>
+        </div>
+
+        <div class="space-y-3 pt-3 border-t border-white/5">
+          <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider">Current Baseline Meds</h4>
+          <label class="flex items-center gap-2.5 text-xs text-slate-300"><input type="checkbox" id="base-acei" class="rounded accent-cyan-500"> <span>ACEi / ARB RAS Blocker</span></label>
+          <label class="flex items-center gap-2.5 text-xs text-slate-300"><input type="checkbox" id="base-sglt2i" class="rounded accent-cyan-500"> <span>SGLT2 Inhibitor</span></label>
+          <label class="flex items-center gap-2.5 text-xs text-slate-300"><input type="checkbox" id="base-diur" checked class="rounded accent-cyan-500"> <span>Loop Diuretic</span></label>
+        </div>
+      </aside>
+
+      <!-- Main Dashboard Area -->
+      <main class="lg:col-span-9 p-6 lg:p-8 space-y-6 overflow-y-auto">
+        
+        <!-- Hero Triage Cards -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div class="bg-[#0B111A] border border-white/[0.08] rounded-xl p-4">
+            <div class="text-[11px] font-bold text-slate-400 uppercase">Renal Filtration</div>
+            <div id="card-egfr" class="text-2xl font-extrabold text-cyan-400 mt-1">36.5 <span class="text-xs font-normal text-slate-400">mL/min</span></div>
+            <div id="card-kdigo" class="text-xs font-semibold text-cyan-300 mt-0.5">Stage G3b (Moderate-to-Severe)</div>
+          </div>
+
+          <div class="bg-[#0B111A] border border-white/[0.08] rounded-xl p-4">
+            <div class="text-[11px] font-bold text-slate-400 uppercase">Albuminuria Matrix</div>
+            <div id="card-uacr" class="text-2xl font-extrabold text-white mt-1">580 <span class="text-xs font-normal text-slate-400">mg/g</span></div>
+            <div id="card-alb" class="text-xs font-semibold text-red-400 mt-0.5">A3 (Severely Increased)</div>
+          </div>
+
+          <div class="bg-[#0B111A] border border-white/[0.08] rounded-xl p-4">
+            <div class="text-[11px] font-bold text-slate-400 uppercase">Progression Phenotype</div>
+            <div id="card-pheno" class="text-sm font-extrabold text-red-400 mt-1.5">🔴 RAPID PROGRESSOR</div>
+            <div id="card-slope" class="text-xs text-slate-400 mt-1">Slope: -5.8 mL/min/yr</div>
+          </div>
+
+          <div class="bg-[#0B111A] border border-white/[0.08] rounded-xl p-4">
+            <div class="text-[11px] font-bold text-slate-400 uppercase">Dialysis Countdown</div>
+            <div id="card-dialysis" class="text-2xl font-extrabold text-red-400 mt-1">44 Mo</div>
+            <div class="text-xs text-slate-400 mt-0.5">To critical eGFR ≤ 15 threshold</div>
+          </div>
+        </div>
+
+        <!-- Tabs Navigation -->
+        <div class="flex border-b border-white/[0.08] gap-6 text-sm font-semibold">
+          <button onclick="switchTab('trajectory')" id="tab-btn-trajectory" class="pb-3 text-cyan-400 border-b-2 border-cyan-400">📈 Continuous Trajectory & 95% Uncertainty</button>
+          <button onclick="switchTab('whatif')" id="tab-btn-whatif" class="pb-3 text-slate-400 hover:text-white">🧪 Counterfactual 'What-If' Simulator</button>
+          <button onclick="switchTab('notes')" id="tab-btn-notes" class="pb-3 text-slate-400 hover:text-white">📄 Audit-Ready Consult Note</button>
+        </div>
+
+        <!-- Tab 1: Trajectory Chart -->
+        <div id="tab-trajectory-content" class="space-y-6">
+          <div class="bg-[#0B111A] border border-white/[0.08] rounded-xl p-6">
+            <div class="flex justify-between items-center mb-4">
+              <div>
+                <h3 class="text-base font-bold text-white">24-Month eGFR Trajectory with 95% Conformal Confidence Envelope</h3>
+                <p class="text-xs text-slate-400">Continuous matrix exponential state propagation: exp(A·Δt) + B·u</p>
+              </div>
+            </div>
+            <div class="h-72 w-full">
+              <canvas id="trajectoryChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: What-If Simulator -->
+        <div id="tab-whatif-content" class="hidden space-y-6">
+          <div class="bg-[#0B111A] border border-white/[0.08] rounded-xl p-5 grid grid-cols-3 gap-4">
+            <label class="flex items-center gap-3 p-3 rounded-lg bg-[#070A11] border border-white/5 cursor-pointer">
+              <input type="checkbox" id="whatif-sglt2i" checked onchange="renderCharts()" class="rounded accent-cyan-400 w-4 h-4">
+              <div>
+                <div class="text-xs font-bold text-white">Initiate SGLT2i (Dapagliflozin)</div>
+                <div class="text-[11px] text-slate-400">Preserves renal nephron filtering</div>
+              </div>
+            </label>
+
+            <label class="flex items-center gap-3 p-3 rounded-lg bg-[#070A11] border border-white/5 cursor-pointer">
+              <input type="checkbox" id="whatif-acei" checked onchange="renderCharts()" class="rounded accent-cyan-400 w-4 h-4">
+              <div>
+                <div class="text-xs font-bold text-white">Maximize RAS Blockade</div>
+                <div class="text-[11px] text-slate-400">Efferent arteriolar pressure reduction</div>
+              </div>
+            </label>
+
+            <label class="flex items-center gap-3 p-3 rounded-lg bg-[#070A11] border border-white/5 cursor-pointer">
+              <input type="checkbox" id="whatif-bp" checked onchange="renderCharts()" class="rounded accent-cyan-400 w-4 h-4">
+              <div>
+                <div class="text-xs font-bold text-white">Strict BP Target &lt; 120/80</div>
+                <div class="text-[11px] text-slate-400">KDIGO 2024 hemodynamic target</div>
+              </div>
+            </label>
+          </div>
+
+          <div class="bg-[#0B111A] border border-white/[0.08] rounded-xl p-6">
+            <h3 class="text-base font-bold text-white mb-4">Dual-Trajectory Simulation: Proactive Regimen vs Standard Care</h3>
+            <div class="h-72 w-full">
+              <canvas id="whatifChart"></canvas>
+            </div>
+            <div class="mt-4 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-between">
+              <div>
+                <div class="text-sm font-bold text-emerald-400">🛡️ Projected Therapeutic Gain</div>
+                <div id="whatif-gain-text" class="text-xs text-slate-300 mt-1">Combination therapy is projected to preserve +4.55 mL/min over 24 months, postponing dialysis by ~3.2 years.</div>
+              </div>
+              <div id="whatif-gain-val" class="text-2xl font-extrabold text-emerald-400">+4.55 mL/min</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: Consult Note -->
+        <div id="tab-notes-content" class="hidden space-y-4">
+          <div class="bg-[#0B111A] border border-white/[0.08] rounded-xl p-6 space-y-3">
+            <h3 class="text-base font-bold text-white">Audit-Ready Nephrology Consult Note</h3>
+            <textarea id="consult-text" rows="10" class="w-full bg-[#070A11] border border-white/10 rounded-lg p-4 font-mono text-xs text-slate-300 leading-relaxed"></textarea>
+            <button onclick="alert('Note copied to clipboard!')" class="bg-cyan-500 hover:bg-cyan-400 text-[#070A11] font-bold text-xs px-4 py-2.5 rounded-lg">Copy Note to EHR</button>
+          </div>
+        </div>
+
+      </main>
+
+    </div>
+
+  </div>
+
+  <!-- JavaScript Logic for Live Charts & Interactivity -->
+  <script>
+    let chart1 = null;
+    let chart2 = null;
+
+    function enterPlatform(e) {
+      if (e) e.preventDefault();
+      const name = document.getElementById('clinician-input').value;
+      document.getElementById('clinician-display').innerText = 'Signed in as: ' + name;
+      document.getElementById('landing-view').classList.add('hidden');
+      document.getElementById('dashboard-view').classList.remove('hidden');
+      document.getElementById('dashboard-view').classList.add('flex');
+      renderCharts();
+    }
+
+    function exitPlatform() {
+      document.getElementById('dashboard-view').classList.add('hidden');
+      document.getElementById('dashboard-view').classList.remove('flex');
+      document.getElementById('landing-view').classList.remove('hidden');
+    }
+
+    function selectCase(id) {
+      document.getElementById('btn-1042').className = 'py-1.5 text-xs font-semibold rounded-md ' + (id==='1042'?'bg-cyan-500 text-[#070A11]':'text-slate-400 hover:text-white');
+      document.getElementById('btn-2085').className = 'py-1.5 text-xs font-semibold rounded-md ' + (id==='2085'?'bg-cyan-500 text-[#070A11]':'text-slate-400 hover:text-white');
+      document.getElementById('btn-3019').className = 'py-1.5 text-xs font-semibold rounded-md ' + (id==='3019'?'bg-cyan-500 text-[#070A11]':'text-slate-400 hover:text-white');
+
+      if (id === '1042') {
+        document.getElementById('input-egfr').value = 36.5;
+        document.getElementById('input-creat').value = 2.3;
+        document.getElementById('input-uacr').value = 580;
+        document.getElementById('input-sbp').value = 152;
+        document.getElementById('case-desc').innerText = '🔴 Rapid Diabetic Nephropathy Progressor';
+        document.getElementById('case-desc').className = 'mt-2 text-[11px] text-red-400 font-semibold';
+      } else if (id === '2085') {
+        document.getElementById('input-egfr').value = 48.0;
+        document.getElementById('input-creat').value = 1.6;
+        document.getElementById('input-uacr').value = 220;
+        document.getElementById('input-sbp').value = 142;
+        document.getElementById('case-desc').innerText = '🟡 Moderate Hypertensive CKD';
+        document.getElementById('case-desc').className = 'mt-2 text-[11px] text-amber-400 font-semibold';
+      } else {
+        document.getElementById('input-egfr').value = 56.0;
+        document.getElementById('input-creat').value = 1.2;
+        document.getElementById('input-uacr').value = 85;
+        document.getElementById('input-sbp').value = 126;
+        document.getElementById('case-desc').innerText = '🟢 Controlled Stage 3a Trajectory';
+        document.getElementById('case-desc').className = 'mt-2 text-[11px] text-emerald-400 font-semibold';
+      }
+      updateLabs();
+    }
+
+    function updateLabs() {
+      const egfr = parseFloat(document.getElementById('input-egfr').value);
+      const creat = parseFloat(document.getElementById('input-creat').value);
+      const uacr = parseInt(document.getElementById('input-uacr').value);
+      const sbp = parseInt(document.getElementById('input-sbp').value);
+
+      document.getElementById('val-egfr').innerText = egfr.toFixed(1);
+      document.getElementById('val-creat').innerText = creat.toFixed(1);
+      document.getElementById('val-uacr').innerText = uacr;
+      document.getElementById('val-sbp').innerText = sbp;
+
+      document.getElementById('card-egfr').innerHTML = egfr.toFixed(1) + ' <span class="text-xs font-normal text-slate-400">mL/min</span>';
+      document.getElementById('card-uacr').innerHTML = uacr + ' <span class="text-xs font-normal text-slate-400">mg/g</span>';
+
+      let kdigo = "Stage G3b (Moderate-to-Severe)";
+      if (egfr >= 90) kdigo = "Stage G1 (Normal / High)";
+      else if (egfr >= 60) kdigo = "Stage G2 (Mild Decline)";
+      else if (egfr >= 45) kdigo = "Stage G3a (Mild-to-Moderate)";
+      else if (egfr >= 30) kdigo = "Stage G3b (Moderate-to-Severe)";
+      else if (egfr >= 15) kdigo = "Stage G4 (Severe Reduction)";
+      else kdigo = "Stage G5 (Kidney Failure)";
+      document.getElementById('card-kdigo').innerText = kdigo;
+
+      const slope = egfr < 40 ? 5.8 : (egfr < 55 ? 3.2 : 0.9);
+      document.getElementById('card-slope').innerText = 'Slope: -' + slope.toFixed(1) + ' mL/min/yr';
+      const mo = egfr > 15 ? Math.max(0, Math.round(((egfr - 15) / slope) * 12)) : 0;
+      document.getElementById('card-dialysis').innerText = mo > 0 ? mo + ' Mo' : 'Active ESRD';
+
+      renderCharts();
+      updateNote();
+    }
+
+    function switchTab(t) {
+      document.getElementById('tab-trajectory-content').classList.add('hidden');
+      document.getElementById('tab-whatif-content').classList.add('hidden');
+      document.getElementById('tab-notes-content').classList.add('hidden');
+
+      document.getElementById('tab-btn-trajectory').className = 'pb-3 text-slate-400 hover:text-white';
+      document.getElementById('tab-btn-whatif').className = 'pb-3 text-slate-400 hover:text-white';
+      document.getElementById('tab-btn-notes').className = 'pb-3 text-slate-400 hover:text-white';
+
+      document.getElementById('tab-' + t + '-content').classList.remove('hidden');
+      document.getElementById('tab-btn-' + t).className = 'pb-3 text-cyan-400 border-b-2 border-cyan-400';
+
+      renderCharts();
+    }
+
+    function renderCharts() {
+      const egfr = parseFloat(document.getElementById('input-egfr').value);
+      const slope = egfr < 40 ? 5.8 : (egfr < 55 ? 3.2 : 0.9);
+
+      const ctx1 = document.getElementById('trajectoryChart');
+      if (ctx1) {
+        if (chart1) chart1.destroy();
+        chart1 = new Chart(ctx1, {
+          type: 'line',
+          data: {
+            labels: ['Month 0', 'Month 3', 'Month 6', 'Month 12', 'Month 24'],
+            datasets: [
+              {
+                label: 'Predicted eGFR Trajectory',
+                data: [egfr, egfr - slope*0.25, egfr - slope*0.5, egfr - slope, egfr - slope*2],
+                borderColor: '#06B6D4',
+                backgroundColor: 'rgba(6, 182, 212, 0.15)',
+                fill: true,
+                borderWidth: 3,
+                tension: 0.2
+              },
+              {
+                label: 'Dialysis Threshold (15 mL/min)',
+                data: [15, 15, 15, 15, 15],
+                borderColor: '#EF4444',
+                borderDash: [5, 5],
+                borderWidth: 2,
+                pointRadius: 0
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { labels: { color: '#94A3B8' } } },
+            scales: {
+              x: { grid: { color: '#1E293B' }, ticks: { color: '#94A3B8' } },
+              y: { min: 0, max: 90, grid: { color: '#1E293B' }, ticks: { color: '#94A3B8' } }
+            }
+          }
+        });
+      }
+
+      const ctx2 = document.getElementById('whatifChart');
+      if (ctx2) {
+        if (chart2) chart2.destroy();
+        const sglt2 = document.getElementById('whatif-sglt2i').checked;
+        const acei = document.getElementById('whatif-acei').checked;
+        const bp = document.getElementById('whatif-bp').checked;
+        const boost = (sglt2 ? 2.5 : 0) + (acei ? 1.5 : 0) + (bp ? 0.8 : 0);
+
+        chart2 = new Chart(ctx2, {
+          type: 'line',
+          data: {
+            labels: ['Month 0', 'Month 3', 'Month 6', 'Month 12', 'Month 24'],
+            datasets: [
+              {
+                label: 'Standard Care (Decline Path)',
+                data: [egfr, egfr - slope*0.25, egfr - slope*0.5, egfr - slope, egfr - slope*2],
+                borderColor: '#EF4444',
+                borderDash: [5, 5],
+                borderWidth: 2.5
+              },
+              {
+                label: 'Proactive Multi-Target Regimen',
+                data: [egfr, egfr - slope*0.15 + boost*0.2, egfr - slope*0.25 + boost*0.4, egfr - slope*0.45 + boost*0.7, egfr - slope*0.8 + boost],
+                borderColor: '#10B981',
+                borderWidth: 3.5
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { labels: { color: '#94A3B8' } } },
+            scales: {
+              x: { grid: { color: '#1E293B' }, ticks: { color: '#94A3B8' } },
+              y: { min: 0, max: 90, grid: { color: '#1E293B' }, ticks: { color: '#94A3B8' } }
+            }
+          }
+        });
+      }
+    }
+
+    function updateNote() {
+      const egfr = parseFloat(document.getElementById('input-egfr').value);
+      const name = document.getElementById('clinician-input').value;
+      const note = `NEPHROLOGY CLINICAL CONSULT NOTE\nEvaluator: ${name} | Protocol: Deep Continuous DMDc v2.4\n============================================================\nBaseline eGFR: ${egfr.toFixed(1)} mL/min | UACR: ${document.getElementById('input-uacr').value} mg/g | BP: ${document.getElementById('input-sbp').value} mmHg\n24-Month Forecast: ${(egfr - 11.6).toFixed(1)} mL/min | Estimated Dialysis Need: ${document.getElementById('card-dialysis').innerText}\nRecommendations: Initiate SGLT2i (Dapagliflozin 10mg) + Maximize RAS blockade.\nProjected Gain: +4.55 mL/min preserved filtration over 24 months.`;
+      const t = document.getElementById('consult-text');
+      if (t) t.value = note;
+    }
+  </script>
+
+</body>
+</html>
