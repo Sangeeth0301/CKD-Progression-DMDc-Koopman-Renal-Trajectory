@@ -23,11 +23,16 @@ $$\frac{dz}{dt} = \mathcal{A}z + \mathcal{B}u \implies z(t + \Delta t) = \exp(\m
 
 ## 🖥️ NephroKoopman AI Clinical Platform & Hospital Report
 
-### 1. Clinician Decision Support Portal
+### 1. Clinician Access Gate & Entry Portal
 ![NephroKoopman AI Landing Portal](docs/assets/landing_page_preview.png)
 
-### 2. Hospital-Grade Consultation & Trajectory PDF Report
-![Hospital Consultation Report](docs/assets/hospital_consult_pdf_preview.png)
+### 2. Interactive Clinical Workspace & Koopman Spectral Diagnostics
+![Clinical Decision Support Dashboard](docs/assets/dashboard_preview.png)
+
+### 3. Hospital-Grade Consultation & Patient Trajectory Report (PDF Export)
+<div align="center">
+  <img src="docs/assets/hospital_consult_pdf_preview.png" width="600" alt="Hospital-Grade Consultation Report" style="border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);" />
+</div>
 
 ---
 
