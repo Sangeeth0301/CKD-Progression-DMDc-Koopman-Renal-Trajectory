@@ -26,12 +26,13 @@ st.set_page_config(
 st.markdown("""
 <style>
     /* Global Base */
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
     
     .stApp {
         background-color: #06090E !important;
         color: #F8FAFC !important;
-        font-family: 'Plus Jakarta Sans', sans-serif !important;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+        -webkit-font-smoothing: antialiased;
     }
     
     /* Hide Default Header / Footer */
@@ -47,9 +48,9 @@ st.markdown("""
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 18px 0px 25px 0px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-        margin-bottom: 35px;
+        padding: 14px 0px 22px 0px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        margin-bottom: 30px;
     }
     .brand-logo-box {
         display: flex;
@@ -57,8 +58,8 @@ st.markdown("""
         gap: 12px;
     }
     .brand-icon {
-        width: 36px;
-        height: 36px;
+        width: 34px;
+        height: 34px;
         background: rgba(6, 182, 212, 0.12);
         border: 1px solid rgba(6, 182, 212, 0.35);
         border-radius: 8px;
@@ -66,28 +67,29 @@ st.markdown("""
         align-items: center;
         justify-content: center;
         color: #06B6D4;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         font-weight: bold;
     }
     .brand-title {
-        font-size: 1.15rem;
+        font-size: 0.98rem;
         font-weight: 700;
         color: #FFFFFF;
         line-height: 1.2;
+        letter-spacing: -0.02em;
     }
     .brand-subtitle {
-        font-size: 0.82rem;
+        font-size: 0.76rem;
         color: #94A3B8;
     }
     .restricted-badge {
         display: flex;
         align-items: center;
         gap: 6px;
-        font-size: 0.82rem;
+        font-size: 0.76rem;
         color: #94A3B8;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        padding: 6px 14px;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        padding: 5px 12px;
         border-radius: 20px;
     }
     
@@ -96,33 +98,33 @@ st.markdown("""
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        font-size: 0.78rem;
+        font-size: 0.72rem;
         font-weight: 700;
         text-transform: uppercase;
-        letter-spacing: 0.06em;
+        letter-spacing: 0.05em;
         color: #06B6D4;
         background: rgba(6, 182, 212, 0.08);
-        border: 1px solid rgba(6, 182, 212, 0.3);
-        padding: 5px 12px;
+        border: 1px solid rgba(6, 182, 212, 0.25);
+        padding: 4px 12px;
         border-radius: 20px;
         margin-bottom: 20px;
     }
     
     /* Hero Headline & Subtitle */
     .hero-headline {
-        font-size: 2.85rem;
-        font-weight: 800;
-        line-height: 1.15;
+        font-size: 3.1rem;
+        font-weight: 700;
+        line-height: 1.1;
         color: #FFFFFF;
         margin-bottom: 20px;
-        letter-spacing: -0.02em;
+        letter-spacing: -0.04em;
     }
     .hero-body {
-        font-size: 1.05rem;
+        font-size: 1.02rem;
         color: #94A3B8;
         line-height: 1.65;
         margin-bottom: 35px;
-        max-width: 680px;
+        max-width: 600px;
     }
     
     /* 4 Feature Cards (Exact Grid) */
@@ -130,27 +132,27 @@ st.markdown("""
         background: #0B111A;
         border: 1px solid rgba(255, 255, 255, 0.08);
         border-radius: 12px;
-        padding: 20px 22px;
+        padding: 20px 20px;
         height: 100%;
         transition: all 0.2s ease-in-out;
     }
     .feature-card:hover {
-        border-color: rgba(6, 182, 212, 0.4);
-        background: #0E1622;
+        border-color: rgba(6, 182, 212, 0.35);
     }
     .feature-icon-teal {
         color: #06B6D4;
-        font-size: 1.3rem;
-        margin-bottom: 10px;
+        font-size: 1.25rem;
+        margin-bottom: 8px;
     }
     .feature-title {
-        font-size: 1.02rem;
-        font-weight: 700;
+        font-size: 0.92rem;
+        font-weight: 600;
         color: #FFFFFF;
-        margin-bottom: 6px;
+        margin-bottom: 4px;
+        letter-spacing: -0.01em;
     }
     .feature-text {
-        font-size: 0.86rem;
+        font-size: 0.82rem;
         color: #94A3B8;
         line-height: 1.5;
     }
@@ -405,7 +407,11 @@ else:
     # -------------------------------------------------------------------------
     # SIDEBAR CONTROLS
     # -------------------------------------------------------------------------
-    st.sidebar.markdown("### 📋 Patient EHR & Lab Controls")
+    col_sb1, col_sb2 = st.sidebar.columns([2, 1])
+    col_sb1.markdown("### 📋 Patient EHR")
+    if col_sb2.button("Sign Out", key="signout_btn"):
+        st.session_state.authenticated = False
+        st.rerun()
     
     preset = st.sidebar.selectbox(
         "Select Clinical Case:",
