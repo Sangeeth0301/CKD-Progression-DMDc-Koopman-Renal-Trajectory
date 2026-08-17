@@ -40,3 +40,9 @@ Thumbs.db
 # Large raw logs / cache
 *.log
 .streamlit/
+
+# Local presentation documents (Never push to git)
+presentation_ready_docs.docx
+presentation_ready_docs.doc
+presentation_ready_docs.pdf
+
